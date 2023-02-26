@@ -19,7 +19,12 @@ Rather than endure the "awkwardness" you describe in your comment, one option wo
 
         void localPrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics?.DrawImage(bitmap, bitmap.GetBounds(ref unit));
+            e.Graphics?.DrawImage(
+                bitmap,
+                    (e.PageBounds.Width - bitmap.Width) / 2,
+                    (e.PageBounds.Height - bitmap.Height) / 2,
+                    bitmap.Width,
+                    bitmap.Height);
         }
     }
 
@@ -48,7 +53,6 @@ Rather than endure the "awkwardness" you describe in your comment, one option wo
             panel.BackColor = Color.Azure;
             panel.Controls.Add(label);
             panel.Controls.SetChildIndex(label, 0);
-
         }
         const int WM_KEYDOWN = 0x0100;
         public bool PreFilterMessage(ref Message m)
@@ -70,4 +74,4 @@ Rather than endure the "awkwardness" you describe in your comment, one option wo
     }
 
 
-  [1]: https://i.stack.imgur.com/5ST5n.png
+  [1]: https://i.stack.imgur.com/waGLb.png

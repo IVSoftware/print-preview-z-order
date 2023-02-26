@@ -57,7 +57,12 @@ namespace print_preview_z_order
 
             void localPrintPage(object sender, PrintPageEventArgs e)
             {
-                e.Graphics?.DrawImage(bitmap, bitmap.GetBounds(ref unit));
+                e.Graphics?.DrawImage(
+                    bitmap,
+                     (e.PageBounds.Width - bitmap.Width) / 2,
+                     (e.PageBounds.Height - bitmap.Height) / 2,
+                     bitmap.Width,
+                     bitmap.Height);
             }
         }
     }
