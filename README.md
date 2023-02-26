@@ -1,4 +1,4 @@
-Rather than endure the "awkwardness" you describe in your comment, one option would be to implement your `captureFromScreen()` method by _really_ capturing the screen using `Graphics.CopyFromScreen()`. This way it should be *WYSIWYG*.
+This code adds a *WYSIWYG* screen capture for the `Panel` contained in the form.
 
     PrintPreviewDialog _printPreview = new PrintPreviewDialog();
     private void captureFromScreen()
